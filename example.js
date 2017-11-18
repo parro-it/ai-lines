@@ -1,3 +1,3 @@
-const $package_var = require("$package_name");
+const aiLines = require("ai-lines");
 
-console.log({ $package_var });
+console.log({ aiLines });

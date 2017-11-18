@@ -1,9 +1,9 @@
-# $package_name
+# ai-lines
 
-[![Travis Build Status](https://img.shields.io/travis/$package_author/$package_name/master.svg)](http://travis-ci.org/$package_author/$package_name)
-[![NPM downloads](https://img.shields.io/npm/dt/$package_name.svg)](https://npmjs.org/package/$package_name)
+[![Travis Build Status](https://img.shields.io/travis/parro-it/ai-lines/master.svg)](http://travis-ci.org/parro-it/ai-lines)
+[![NPM downloads](https://img.shields.io/npm/dt/ai-lines.svg)](https://npmjs.org/package/ai-lines)
 
-> $package_description
+> Split an async iterable into lines
 
 background details relevant to understanding what this module does
 
@@ -15,9 +15,9 @@ __This module is part of [Async iterable fun](https://github.com/parro-it/ai-fun
 description of the example
 
 ```js
-const $package_var = require('$package_name');
+const aiLines = require('ai-lines');
 
-console.log({$package_var});
+console.log({aiLines});
 ```
 
 This will output
@@ -32,7 +32,7 @@ This will output
 With [npm](https://npmjs.org/) installed, run
 
 ```bash
-npm install --save $package_name
+npm install --save ai-lines
 ```
 
 ## See Also
