@@ -1,6 +1,6 @@
 {
   "name": "ai-lines",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Split an async iterable into lines",
   "repository": "parro-it/ai-lines",
   "author": "Andrea Parodi <andrea@parro.it>",
