@@ -1,16 +1,14 @@
 {
   "name": "ai-lines",
   "version": "1.0.0",
-  "description": "Split an async iterable into lines",
+  "description": "Split an async iterable into lines.",
   "repository": "parro-it/ai-lines",
   "author": "Andrea Parodi <andrea@parro.it>",
   "license": "MIT",
-  "files": [
-    "index.js",
-    "example.js"
-  ],
+  "files": ["index.js", "example.js"],
   "scripts": {
-    "test": "node --harmony_async_iteration -r @std/esm test.js | tap-colorize - && linterjs .",
+    "test":
+      "node --harmony_async_iteration -r @std/esm test.js | tap-colorize - && linterjs .",
     "doc": "documentation readme index.js --section=API"
   },
   "engines": {
