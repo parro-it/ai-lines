@@ -1,23 +1,34 @@
-export default async function* aiLines(stream, separator = /\n/) {
+import AsyncIterable from "asynciterable";
+
+export default function aiLines(data, separator = /\n/) {
   let buff = { concat: s => s };
-  for await (const chunk of stream) {
-    const lines = chunk.split(separator);
-    const firstLine = lines.shift();
-    const lastLine = lines.pop();
+  return new AsyncIterable(async (write, end) => {
+    const generator = data[Symbol.asyncIterator] || data[Symbol.iterator];
+    const iterator = generator.call(data);
+    let item = await iterator.next();
+    while (!item.done) {
+      const chunk = item.value;
+      const lines = chunk.split(separator);
+      const firstLine = lines.shift();
+      const lastLine = lines.pop();
 
-    buff = buff.concat(firstLine);
+      buff = buff.concat(firstLine);
 
-    if (typeof lastLine === "string") {
-      yield buff;
-      buff = lastLine;
+      if (typeof lastLine === "string") {
+        write(buff);
+        buff = lastLine;
 
-      for (const otherPart of lines) {
-        yield otherPart;
+        for (const otherPart of lines) {
+          write(otherPart);
+        }
       }
-    }
-  }
 
-  if (typeof buff === "string") {
-    yield buff;
-  }
+      item = await iterator.next();
+    }
+    if (typeof buff === "string") {
+      end(buff);
+    } else {
+      end();
+    }
+  });
 }
